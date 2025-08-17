@@ -1,5 +1,7 @@
+// App.jsx
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import HomePage from "./pages/HomePage";
 import RegisterPage from "./pages/RegisterPage";
 import LoginPage from "./pages/LoginPage";
@@ -12,22 +14,95 @@ import ReservationList from "./pages/ReservationList";
 import CategoryPage from "./pages/CategoryPage";
 import SearchPage from "./pages/SearchPage";
 
+// PrivateRoute component
+const PrivateRoute = ({ children }) => {
+  const { user } = useSelector((state) => state.user);
+  return user ? children : <Navigate to="/login" />;
+};
+
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        {/* Public routes */}
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/create-listing" element={<CreateListing />} />
-        <Route path="/listings/:listingId" element={<ListingDetails />} />
-        <Route path="/listings/category/:category" element={<CategoryPage />} />
-        <Route path="/listings/search/:search" element={<SearchPage />} />
 
-        <Route path="/:userId/trips" element={<TripList />} />
-        <Route path="/:userId/wishList" element={<WishList />} />
-        <Route path="/:userId/properties" element={<PropertyList />} />
-        <Route path="/:userId/reservations" element={<ReservationList />} />
+        {/* Protected routes */}
+        <Route
+          path="/"
+          element={
+            <PrivateRoute>
+              <HomePage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/create-listing"
+          element={
+            <PrivateRoute>
+              <CreateListing />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/listings/:listingId"
+          element={
+            <PrivateRoute>
+              <ListingDetails />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/listings/category/:category"
+          element={
+            <PrivateRoute>
+              <CategoryPage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/listings/search/:search"
+          element={
+            <PrivateRoute>
+              <SearchPage />
+            </PrivateRoute>
+          }
+        />
+
+        {/* User-specific routes */}
+        <Route
+          path="/:userId/trips"
+          element={
+            <PrivateRoute>
+              <TripList />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/:userId/wishList"
+          element={
+            <PrivateRoute>
+              <WishList />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/:userId/properties"
+          element={
+            <PrivateRoute>
+              <PropertyList />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/:userId/reservations"
+          element={
+            <PrivateRoute>
+              <ReservationList />
+            </PrivateRoute>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );

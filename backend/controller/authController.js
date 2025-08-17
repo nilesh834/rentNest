@@ -31,9 +31,8 @@ export const register = async (req, res, next) => {
 
     await newUser.save();
 
-    res
-      .status(201)
-      .json({ message: "User created successfully", user: newUser });
+    // Only return a message, NOT a token
+    res.status(201).json({ message: "User created successfully" });
   } catch (error) {
     next(error);
   }

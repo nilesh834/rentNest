@@ -34,7 +34,7 @@ export const categories = [
   },
   {
     img: "https://images.pexels.com/photos/1449767/pexels-photo-1449767.jpeg?auto=compress&cs=tinysrgb&w=600",
-    label: "coastal",
+    label: "Coastal",
     icon: <FaUmbrellaBeach />,
     description: "This property is conveniently located by the beach",
   },

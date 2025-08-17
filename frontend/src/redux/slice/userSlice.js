@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  user: null,
-  token: null,
+  user: JSON.parse(localStorage.getItem("user")) || null,
+  token: localStorage.getItem("token") || null,
 };
 
 export const userSlice = createSlice({
@@ -12,10 +12,14 @@ export const userSlice = createSlice({
     setLogin: (state, action) => {
       state.user = action.payload.user;
       state.token = action.payload.token;
+      localStorage.setItem("user", JSON.stringify(action.payload.user));
+      localStorage.setItem("token", action.payload.token);
     },
     setLogout: (state) => {
       state.user = null;
       state.token = null;
+      localStorage.removeItem("user");
+      localStorage.removeItem("token");
     },
     setTripList: (state, action) => {
       state.user.tripList = action.payload;
