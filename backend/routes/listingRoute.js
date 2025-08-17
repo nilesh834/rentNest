@@ -1,0 +1,32 @@
+import express from "express";
+import multer from "multer";
+import {
+  createListing,
+  getListingDetails,
+  getListings,
+  getListingsBySearch,
+} from "../controller/listingController.js";
+
+//multer configuration
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "public/uploads/");
+  },
+  filename: function (req, file, cb) {
+    const ext = file.originalname.split(".").pop();
+    const shortName = Math.random().toString(36).substring(2, 8);
+    cb(null, shortName + "." + ext);
+  },
+});
+const upload = multer({ storage });
+
+const router = express.Router();
+
+router.post("/create", upload.array("listingPhotos"), createListing);
+router.get("/", getListings);
+
+router.get("/:listingId", getListingDetails);
+
+router.get("/search/:search", getListingsBySearch);
+
+export default router;
