@@ -48,6 +48,14 @@ app.use((req, res) => {
 
 // Global error handler
 app.use((err, req, res, next) => {
+  // Multer file upload errors
+  if (err.name === "MulterError") {
+    return res.status(400).json({
+      success: false,
+      statusCode: 400,
+      message: err.message || "File upload error",
+    });
+  }
   const statusCode = err.statusCode || 500;
   const message = err.message || "Internal Server Error";
 

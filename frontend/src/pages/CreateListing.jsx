@@ -54,9 +54,18 @@ const CreateListing = () => {
     const newPhotos = Array.from(e.target.files);
 
     // Validate file type
-    const validPhotos = newPhotos.filter((photo) =>
-      photo.type.startsWith("image/")
-    );
+    const MAX_SIZE = 5 * 1024 * 1024; // 5 MB per image
+    const validPhotos = newPhotos.filter((photo) => {
+      if (!photo.type.startsWith("image/")) {
+        toast.error(`${photo.name} is not an image`);
+        return false;
+      }
+      if (photo.size > MAX_SIZE) {
+        toast.error(`${photo.name} exceeds 5MB`);
+        return false;
+      }
+      return true;
+    });
 
     setPhotos((prevPhotos) => [...prevPhotos, ...validPhotos]);
   };

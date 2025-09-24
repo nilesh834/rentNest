@@ -26,10 +26,27 @@ const RegisterPage = () => {
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
-    setFormData({
-      ...formData,
-      [name]: name === "profileImage" ? files[0] : value,
-    });
+
+    if (name === "profileImage" && files[0]) {
+      const file = files[0];
+
+      // Example: 2 MB limit
+      const MAX_SIZE = 2 * 1024 * 1024;
+      if (file.size > MAX_SIZE) {
+        toast.error("Profile image must be under 2MB");
+        return;
+      }
+
+      setFormData({
+        ...formData,
+        [name]: file,
+      });
+    } else {
+      setFormData({
+        ...formData,
+        [name]: value,
+      });
+    }
   };
 
   const handleSubmit = async (e) => {

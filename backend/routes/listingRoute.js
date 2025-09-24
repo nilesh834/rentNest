@@ -15,7 +15,7 @@ const router = express.Router();
 router.post(
   "/create",
   verifyToken,
-  upload.array("listingPhotos"),
+  upload.array("listingPhotos", 10),
   createListing
 );
 
