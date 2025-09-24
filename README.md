@@ -130,14 +130,12 @@ Run frontend dev server:
 
 ## 🎨 Screenshots
 <p align="center">
-<img width="700" height="1150" alt="Image" src="https://github.com/user-attachments/assets/14be3ce0-8c91-431a-a608-86508f610789" />
-<img width="700" height="1150" alt="Image" src="https://github.com/user-attachments/assets/db710364-48c4-4844-9b4f-cce35ae7595f" />
-<img width="700" height="1150" alt="Image" src="https://github.com/user-attachments/assets/868cb20e-1533-423e-9f89-3f195261566a" />
-<img width="700" height="1150" alt="Image" src="https://github.com/user-attachments/assets/72c9474c-03cd-43bf-90c7-cfb4b1c345f8" />
+<img width="700" height="1150" alt="Image11" src="https://github.com/user-attachments/assets/14be3ce0-8c91-431a-a608-86508f610789" />
+<img width="700" height="1150" alt="Image12" src="https://github.com/user-attachments/assets/db710364-48c4-4844-9b4f-cce35ae7595f" />
+<img width="700" height="1150" alt="Image13" src="https://github.com/user-attachments/assets/868cb20e-1533-423e-9f89-3f195261566a" />
+<img width="700" height="1150" alt="Image14" src="https://github.com/user-attachments/assets/72c9474c-03cd-43bf-90c7-cfb4b1c345f8" />
 </p>
 
 
 ## 👨‍💻 Author  
-
--   **RentNest Team** – Built with ❤️ to help people feel at home anywhere.  
-- [@nilesh834](https://github.com/nilesh834)  
+**RentNest** – Built with ❤️ to help people feel at home anywhere.
