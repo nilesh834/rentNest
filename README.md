@@ -52,16 +52,7 @@ A full-stack rental marketplace platform where users can list, discover, and boo
 - Properties: Listings created by user  
 - Wishlist: Saved favorite listings  
 - Delete account (with confirmation)  
-
-## Installation
-
-Install my-project with npm
-
-```bash
-  npm install my-project
-  cd my-project
-```
-    
+  
 ## ⚙️ Installation  
 
 1️⃣ **Clone the repository**  
