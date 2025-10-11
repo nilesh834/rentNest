@@ -23,7 +23,8 @@ A full-stack rental marketplace platform where users can list, discover, and boo
 
 **Database & Services**
   - MongoDB Atlas  
-  - Cloudinary (media hosting & optimization)  
+  - Cloudinary (media hosting & optimization)
+
 ## 📦 Features
 ### 🔐 Authentication  
 - User registration with profile picture upload (Cloudinary)  
@@ -77,7 +78,7 @@ Create a `.env` file in `/backend` with:
   CLOUDINARY_API_SECRET=your_cloudinary_api_secret
 ```
 
-Run backend server
+Run backend server:
 ```bash
   npm run dev
 ```
@@ -88,7 +89,7 @@ Run backend server
   cd frontend
   npm install
 ```
-Create a `.env` file in /frontend with:
+Create a `.env` file in `/frontend` with:
 ```env
   VITE_API_URL=http://localhost:5000
 ```
